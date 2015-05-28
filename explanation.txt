@@ -1,0 +1,15 @@
+How to POST ingredients in curl
+
+You need to include =ingredient because the params hash keeps track of the ingredients,
+with each individual ingredient (e.g. "tuna fish") serving as a key.
+The params hash passes in the ingredients, so you need to tell curl
+that you are putting in an ingredient. If you place a binding.pry
+in your post block in server.rb, you can see the params (e.g. {"ingredient"=>"tuna fish"}).
+
+The curl option -d allows you to post data to the website.
+The post block in server.rb allows for adding ingredients to the params hash.
+
+Run from command line to add ingredient:
+curl -d "ingredient=3%20tablespoons%20good%20olive%20oil” http://localhost:4567/ingredients
+curl -d "ingredient=3/4%20teaspoon%20kosher%20salt" http://localhost:4567/ingredients
+curl -d "ingredient=1/2%20teaspoon%20freshly%20ground%20black%20pepper" http://localhost:4567/ingredients
